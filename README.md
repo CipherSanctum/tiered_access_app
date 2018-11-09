@@ -6,7 +6,7 @@ An app for tiered levels of access.
 
 This is a base app / template to allow you to have tiered levels of access based
 on whatever you want. Includes a helpful reminder to let the user know the result
-of the last action they took (updated, enabled, do this, do that, etc).
+of the last action they took *(updated, enabled, do this, do that, etc).*
 
 #### Example:
 
