@@ -1,7 +1,5 @@
 # Tiered levels of access app for Django 2.x
 
-An app for tiered levels of access.
-
 ### DESCRIPTION:
 
 This is a base app / template to allow you to have tiered levels of access based
