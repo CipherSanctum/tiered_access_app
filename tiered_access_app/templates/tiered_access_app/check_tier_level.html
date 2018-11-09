@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block seotag %}
+    <title>Tier level check</title>
+    <meta name="description" content="Check your current tier level of accesss">
+    <meta name="keywords" content="PwnSauceDesigns.com, tier, level, levels, access, app">
+    <meta name="author" content="PwnSauceDesigns.com">
+    <meta name="robots" content="index,imageindex,follow,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="PwnSauceDesigns.com Tier level check Page.">
+    <meta property="og:description" content="Check your current tier level of accesss.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.PwnSauceDesigns.com/tiered_access_app/">
+    <meta property="og:image" content="">  <!-- image url for facebook shares. -->
+{% endblock seotag %}
+
+
+
+{% block maincontent %}
+
+  <h1><strong>Tier level check</strong></h1>
+
+  {% if level_3 %}
+      <p>{{ level_3 }}</p>
+      <p><b><u>Tier 3 special message:</u></b> This is tier 3's special message.</p>
+      <p><b><u>Tier 2 special message:</u></b> This is tier 2's special message.</p>
+      <p><b><u>Tier 1 special message:</u></b> This is tier 1's special message.</p>
+
+
+  {% elif level_2 %}
+      <p>{{ level_2 }}</p>
+      <p><b><u>Tier 2 special message:</u></b> This is tier 2's special message.</p>
+      <p><b><u>Tier 1 special message:</u></b> This is tier 1's special message.</p>
+
+
+  {% elif level_1 %}
+      <p>{{ level_1 }}</p>
+      <p><b><u>Tier 1 special message:</u></b> This is tier 1's special message.</p>
+
+
+  {% elif enabled_no_access %}
+      <p>{{ enabled_no_access }}</p>
+
+
+  {% else %}
+      <p>{{ no_access }}</p>
+      <p>You haven't enabled it either.</p>
+      <p>Go back and enable it to see a different message.</p>
+
+
+  {% endif %}
+
+
+{% endblock maincontent %}
