@@ -1,5 +1,8 @@
 # Tiered levels of access app for Django 2.x
 
+### PROGRAM CREATED BY:
+Kevin / DiscoMushroom from PwnSauceDesigns.com
+
 ### DESCRIPTION:
 
 This is a base app / template to allow you to have tiered levels of access based
