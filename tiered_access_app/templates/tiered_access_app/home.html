@@ -6,10 +6,9 @@
 {% block seotag %}
     <title>Tiered access app example</title>
     <meta name="description" content="Sample app for tiered levels of access">
-    <meta name="keywords" content="PwnSauceDesigns.com, tier, level, levels, access, app">
+    <meta name="keywords" content="PwnSauceDesigns.com, tier, level, levels, access">
     <meta name="author" content="PwnSauceDesigns.com">
     <meta name="robots" content="index,imageindex,follow,archive">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta property="og:title" content="PwnSauceDesigns.com Tiered access app Page.">
     <meta property="og:description" content="Sample app for tiered levels of access.">
@@ -23,34 +22,27 @@
 {% block maincontent %}
   <h1><strong>Tiered access app example:</strong></h1>
 
-  <p>The following is an example showing I can create tiered levels of access. If you click any of the following buttons without going through the right process,
-    you won't be able to view what's in it. When you get access, all you get is text saying so. Otherwise it says you don't have access to it yet.
-    <mark>This example can be combined with any of the other sample apps I have.</mark></p>
 
-  <p>After you see you're denied access to all levels without doing it properly, enable your access by starting on STEP 1. Then <mark>I suggest you
-    try them from level 1 and up.</mark> Why? Because if you start on level 1, you will only have access to level 1. Level 2 will gave access to 1 and 2.
-    Three gives access to them all. <mark>Reset your level to retry it if you want.</mark></p>
-
-
-  {% if special_message %}
+  {% if messages %}
     <h2 class="margintop100px springgreen special_message_glow">
-      {{ special_message }}
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
     </h2>
   {% endif %}
 
 
-  <form class="margintop100px" action="{% url 'tiered_access_app:gain_access' %}" method="POST">
-    {% csrf_token %}
-    <label><u>STEP 1: Enable access</u></label>
-    <p>You must first enable yourself to be able to check the following levels. Click the button below and it will redirect you back here to test it.</p>
-    <input type="submit" value="Enable access" class="submitbox">
-  </form>
+  <h2 style="font-size: 1.5em; margin-top: 100px;"><u>STEP 1:</u></h2>
+  <p>The following is an example showing I can create tiered levels of access. The first thing I want you to do is <a href="{% url 'tiered_access_app:check_tier_level' %}">check your access level.</a> Notice how
+      it goes to the url <em>.../tiered_access_app/check_tier_level/.</em></p>
+
 
 
   <form class="margintop100px" action="{% url 'tiered_access_app:gain_access' %}" method="POST">
     {% csrf_token %}
-    <label><u>STEP 2: Check level 1 access</u></label>
-    <p><a href="{% url 'tiered_access_app:check_tier_level' %}">Try to access level 1 first.</a> You won't be allowed unless you gain access to level 1.</p>
+    <label><u>STEP 2:</u></label>
+    <p>Now I want you to click the button below to give you access and enable level 1. This will let you be able to to download a dynamic csv file based on replies you've put on <a href="{% url 'forum_app:category_list' %}">the
+      forum.</a> If you haven't made any replies yet, you'll get a white page telling you to do so.</p>
     <input type="hidden" value='1' name="tier_level">
     <input type="submit" value="Enable level 1" class="submitbox">
   </form>
@@ -58,9 +50,11 @@
 
   <form class="margintop100px" action="{% url 'tiered_access_app:gain_access' %}" method="POST">
     {% csrf_token %}
-    <label><u>STEP 3: Check level 2 access</u></label>
-    <p><a href="{% url 'tiered_access_app:check_tier_level' %}">Try to access level 2.</a> You won't be allowed unless you gain access to level 2.</p>
-    <p>Do that and you will have access to levels 1 and 2, but not 3. Go check them both after you get access to this level.</p>
+    <label><u>STEP 3:</u></label>
+    <p>Now I want you to <a href="{% url 'tiered_access_app:check_tier_level' %}">check your access level again.</a> Notice how it still goes to the same url as before at <em>.../tiered_access_app/check_tier_level/</em>.
+      Also notice how you're now on level 1, and how you can now download a small dynamic csv file based on all the replies you've put on the forum for this site. But if you haven't made any
+      replies, you just get a response telling you to go make some. You can do that by going to <a href="{% url 'forum_app:category_list' %}">the forum</a> and making some replies. Smash your face on your
+      keyboard if you must. Put some new lines and so on too. You can make topics as well, but this program is only set to get all your replies.</p>
     <input type="hidden" value='2' name="tier_level">
     <input type="submit" value="Enable level 2" class="submitbox">
   </form>
@@ -68,9 +62,12 @@
 
   <form class="margintop100px" action="{% url 'tiered_access_app:gain_access' %}" method="POST">
     {% csrf_token %}
-    <label><u>STEP 4: Check level 3 access</u></label>
-    <p>Finally, <a href="{% url 'tiered_access_app:check_tier_level' %}">try to access level 3.</a> You won't be allowed unless you gain access to level 3.</p>
-    <p>Then you will have access to all levels.</p>
+    <label><u>STEP 4:</u></label>
+    <p>Now, <a href="{% url 'tiered_access_app:check_tier_level' %}">check your access level again.</a> Notice how it's at the same url as before at <em>.../tiered_access_app/check_tier_level/</em>, and
+      how you're now on level 2. Now you can download a much more detailed version of the csv file.</p>
+    <p>After checking the link above again, click the button below to enable level 3, which will let you download a dynamic ZIP file based on all the replies you've put on the forum for this site. This ZIP file will contain
+      many text files of the content of those replies, instead of everything being in a csv file. Like before, go make some replies on the <a href="{% url 'forum_app:category_list' %}">the forum</a> if you want to test this better.</p>
+    <p>Once you've done that, <a href="{% url 'tiered_access_app:check_tier_level' %}">check your access level again</a> to download the file.</p>
     <input type="hidden" value='3' name="tier_level">
     <input type="submit" value="Enable level 3" class="submitbox">
   </form>
@@ -80,6 +77,7 @@
     {% csrf_token %}
     <label><u>Reset access to nothing:</u></label>
     <p>You can also reset your access to nothing. Click the button below to reset.</p>
+    <p>But if you came here after enabling level 3, I suggeest you go <a href="{% url 'tiered_access_app:check_tier_level' %}">check your access level again</a> before resetting your access to nothing.</p>
     <input type="hidden" value='0' name="tier_level">
     <input type="submit" value="Reset!" class="submitbox">
   </form>

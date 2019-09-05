@@ -10,5 +10,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('check_tier_level/', views.check_tier_level, name='check_tier_level'),
     path('check_tier_level/gain_access/', views.gain_access, name='gain_access'),
-    path('<slug:special_message>/', views.home, name='home_special_message'),
+    path('special_file/little_csv/', views.little_csv, name='little_csv'),
+    path('special_file/big_csv/', views.big_csv, name='big_csv'),
+    path('special_file/zip_file/', views.zip_file, name='zip_file'),
 ]

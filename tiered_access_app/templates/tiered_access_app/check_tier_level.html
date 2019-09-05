@@ -6,10 +6,9 @@
 {% block seotag %}
     <title>Tier level check</title>
     <meta name="description" content="Check your current tier level of accesss">
-    <meta name="keywords" content="PwnSauceDesigns.com, tier, level, levels, access, app">
+    <meta name="keywords" content="PwnSauceDesigns.com, tier, level, levels, access">
     <meta name="author" content="PwnSauceDesigns.com">
     <meta name="robots" content="index,imageindex,follow,archive">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta property="og:title" content="PwnSauceDesigns.com Tier level check Page.">
     <meta property="og:description" content="Check your current tier level of accesss.">
@@ -22,34 +21,34 @@
 
 {% block maincontent %}
 
-  <h1><strong>Tier level check</strong></h1>
-
   {% if level_3 %}
-      <p>{{ level_3 }}</p>
-      <p><b><u>Tier 3 special message:</u></b> This is tier 3's special message.</p>
-      <p><b><u>Tier 2 special message:</u></b> This is tier 2's special message.</p>
-      <p><b><u>Tier 1 special message:</u></b> This is tier 1's special message.</p>
+      <h1><strong>{{ level_3 }}</strong></h1>
+      <p><b><u>Tier 3:</u></b> Instead of a csv file, this tier will grant you a zip file with a bunch of text files of every reply you made. And that if you never made any replies, you'll get a file
+        telling you to go make some. The name of the txt files will be year-month-day-topic-title.txt... Here it is: <a href="{% url 'tiered_access_app:zip_file' %}">Download the ZIP file</a></p>
+      <p><b><u>Tier 2 e:</u></b> See above, or <a href="{% url 'tiered_access_app:big_csv' %}">download level 2's csv file.</a></p>
+      <p><b><u>Tier 1:</u></b> See above, or <a href="{% url 'tiered_access_app:little_csv' %}">download level 1's csv file.</a></p>
 
 
   {% elif level_2 %}
-      <p>{{ level_2 }}</p>
-      <p><b><u>Tier 2 special message:</u></b> This is tier 2's special message.</p>
-      <p><b><u>Tier 1 special message:</u></b> This is tier 1's special message.</p>
+      <h1><strong>{{ level_2 }}</strong></h1>
+      <p><b><u>Tier 2:</u></b> This tier will grant you the same thing as level 1 but with a lot more detail. Because the database fields I use allow multiple lines, your csv file will look a little wonky if you added a lot of lines
+        to your reply by hitting enter, or using markdown syntax for styling it... Such as by using #'s for h tags <em>(### your words here == an h3 tag)</em>, and 1 or 2 *'s between words to italicize or embolden them. The next
+        tier will correct this problem. But if you never made any replies, you'll get a file telling you to go make some. Here it is: <a href="{% url 'tiered_access_app:big_csv' %}">Download
+        the CSV file</a></p>
+
+      <p><b><u>Tier 1:</u></b> See above, or <a href="{% url 'tiered_access_app:little_csv' %}">download level 1's csv file.</a></p>
 
 
   {% elif level_1 %}
-      <p>{{ level_1 }}</p>
-      <p><b><u>Tier 1 special message:</u></b> This is tier 1's special message.</p>
-
-
-  {% elif enabled_no_access %}
-      <p>{{ enabled_no_access }}</p>
+      <!-- CSV file for all replies - reply title and created / updated made -->
+      <h1><strong>{{ level_1 }}</strong></h1>
+      <p><b><u>Tier 1:</u></b> This tier will grant you a CSV file of the titles, creation times, and update times of all replies you made in the forum. Times are stored in something called UTC, or Universal time, so that
+        might look kinda weird to you, though I could present that differently. If you never made any replies, you'll get a response telling you to go make some. Here it
+        is: <a href="{% url 'tiered_access_app:little_csv' %}">Download the CSV file</a></p>
 
 
   {% else %}
-      <p>{{ no_access }}</p>
-      <p>You haven't enabled it either.</p>
-      <p>Go back and enable it to see a different message.</p>
+      <h1><strong>{{ no_access }}</strong></h1>
 
 
   {% endif %}
