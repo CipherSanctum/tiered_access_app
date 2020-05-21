@@ -1,7 +1,7 @@
 # Tiered levels of access app for Django 2.x
 
 ### PROGRAM CREATED BY:
-Kevin from PwnSauceDesigns.com
+Kevin from CyberHavenProgramming.com
 
 ### DESCRIPTION:
 
@@ -11,7 +11,7 @@ of the last action they took *(updated, enabled, do this, do that, etc).*
 
 ### EXAMPLE:
 
-Can be found here once you signup and login:  https://pwnsaucedesigns.com/tiered_access_app/
+Can be found here once you signup and login:  https://CyberHavenProgramming.com/tiered_access_app/
 
 It only demonstrates the principle. Notice the url upon activating a level is always the same.
 
