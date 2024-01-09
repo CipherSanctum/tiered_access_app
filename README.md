@@ -1,7 +1,7 @@
 # Tiered levels of access app for Django 2.x
 
 ### PROGRAM CREATED BY:
-Kevin from CipherSanctum.com
+Kevin from https://CipherSanctum.com
 
 ### DESCRIPTION:
 
